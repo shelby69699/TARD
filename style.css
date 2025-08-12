@@ -247,13 +247,15 @@ nav a:hover {
 }
 
 .tard-head {
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(135deg, #6a4c93 0%, #4a90e2 50%, #50c9c3 100%);
     border-radius: 50%;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: -20px;
     animation: wiggle 2s ease-in-out infinite;
+    border: 5px solid #2c1810;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 @keyframes wiggle {
@@ -268,51 +270,111 @@ nav a:hover {
 
 .tard-eyes {
     display: flex;
-    justify-content: space-around;
-    margin-top: 50px;
+    justify-content: space-between;
+    margin-top: 60px;
+    width: 160px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .eye {
-    width: 40px;
-    height: 40px;
-    background: white;
+    width: 50px;
+    height: 50px;
+    background: #f5f5dc;
     border-radius: 50%;
     position: relative;
+    border: 3px solid #2c1810;
+}
+
+.left-eye {
+    transform: scale(1.2);
+}
+
+.right-eye {
+    transform: scale(0.8);
+    margin-top: 10px;
 }
 
 .eye:after {
     content: '';
-    width: 20px;
-    height: 20px;
-    background: black;
+    width: 15px;
+    height: 15px;
+    background: #000;
     border-radius: 50%;
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     animation: blink 3s infinite;
 }
 
+.left-eye:after {
+    width: 20px;
+    height: 20px;
+}
+
 @keyframes blink {
-    0%, 90%, 100% { transform: scale(1); }
-    95% { transform: scale(1, 0.1); }
+    0%, 90%, 100% { transform: translate(-50%, -50%) scale(1); }
+    95% { transform: translate(-50%, -50%) scale(1, 0.1); }
 }
 
 .tard-mouth {
-    width: 80px;
-    height: 40px;
+    width: 60px;
+    height: 50px;
     background: #000;
-    border-radius: 0 0 80px 80px;
+    border-radius: 0 0 60px 60px;
     position: absolute;
-    bottom: 30px;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
+    border: 3px solid #2c1810;
+    overflow: hidden;
+}
+
+.tard-mouth:after {
+    content: '';
+    width: 30px;
+    height: 20px;
+    background: #ff69b4;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: tongueWag 2s ease-in-out infinite;
+}
+
+@keyframes tongueWag {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-40%) translateY(-3px); }
 }
 
 .tard-body {
-    width: 150px;
-    height: 200px;
-    background: linear-gradient(45deg, #8b5cf6, #06b6d4);
-    border-radius: 75px;
+    width: 180px;
+    height: 220px;
+    background: linear-gradient(135deg, #6a4c93 0%, #4a90e2 50%, #50c9c3 100%);
+    border-radius: 90px;
+    border: 5px solid #2c1810;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.tard-body:before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0%, 100% { opacity: 0.2; transform: translateX(-50%) scale(1); }
+    50% { opacity: 0.4; transform: translateX(-50%) scale(1.2); }
 }
 
 /* Sections */
