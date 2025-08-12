@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARD Game - Catch the Falling TARDs!</title>
+    <link rel="stylesheet" href="game.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <header>
+        <div class="container">
+            <h1 class="logo"><a href="index.html">$TARD</a></h1>
+            <nav>
+                <a href="index.html#about">About</a>
+                <a href="index.html#tokenomics">Tokenomics</a>
+                <a href="index.html#roadmap">Roadmap</a>
+                <a href="game.html" class="active">GAME</a>
+                <a href="index.html#buy" class="buy-btn">BUY NOW!</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="game-section">
+            <div class="container">
+                <h1 class="game-title">TARD CATCHER</h1>
+                <p class="game-subtitle">Catch the falling TARDs and avoid the bombs!</p>
+                
+                <div class="game-stats">
+                    <div class="stat">
+                        <span class="stat-label">SCORE:</span>
+                        <span id="score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">LIVES:</span>
+                        <span id="lives" class="stat-value">3</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">LEVEL:</span>
+                        <span id="level" class="stat-value">1</span>
+                    </div>
+                </div>
+
+                <div class="game-container">
+                    <canvas id="gameCanvas" width="800" height="600"></canvas>
+                    
+                    <div class="game-overlay" id="gameOverlay">
+                        <div class="game-menu" id="startMenu">
+                            <h2>Welcome to TARD Catcher!</h2>
+                            <p>Use arrow keys or WASD to move your basket</p>
+                            <p>Catch the TARDs (+10 points)</p>
+                            <p>Avoid the bombs (-1 life)</p>
+                            <button class="game-btn" onclick="startGame()">START GAME</button>
+                        </div>
+                        
+                        <div class="game-menu hidden" id="gameOverMenu">
+                            <h2>GAME OVER!</h2>
+                            <p>Final Score: <span id="finalScore">0</span></p>
+                            <div class="score-message" id="scoreMessage"></div>
+                            <button class="game-btn" onclick="restartGame()">PLAY AGAIN</button>
+                            <button class="game-btn secondary" onclick="goHome()">BACK TO HOME</button>
+                        </div>
+                        
+                        <div class="game-menu hidden" id="pauseMenu">
+                            <h2>PAUSED</h2>
+                            <button class="game-btn" onclick="resumeGame()">RESUME</button>
+                            <button class="game-btn secondary" onclick="restartGame()">RESTART</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-controls">
+                    <button class="control-btn" onclick="pauseGame()" id="pauseBtn">PAUSE</button>
+                    <button class="control-btn" onclick="restartGame()">RESTART</button>
+                    <button class="control-btn secondary" onclick="goHome()">HOME</button>
+                </div>
+
+                <div class="game-instructions">
+                    <h3>How to Play:</h3>
+                    <div class="instructions-grid">
+                        <div class="instruction">
+                            <strong>Move:</strong> Arrow Keys or WASD
+                        </div>
+                        <div class="instruction">
+                            <strong>Pause:</strong> Space Bar or P
+                        </div>
+                        <div class="instruction">
+                            <strong>Goal:</strong> Catch TARDs, avoid bombs!
+                        </div>
+                        <div class="instruction">
+                            <strong>Scoring:</strong> Each TARD = 10 points
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leaderboard">
+                    <h3>High Scores:</h3>
+                    <div id="highScores">
+                        <div class="score-entry">1. Anonymous: 0</div>
+                        <div class="score-entry">2. Anonymous: 0</div>
+                        <div class="score-entry">3. Anonymous: 0</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 $TARD Token. All rights reserved to be wrong.</p>
+            <p>Have fun playing and remember to buy $TARD!</p>
+        </div>
+    </footer>
+
+    <script src="game.js"></script>
+</body>
+</html>
