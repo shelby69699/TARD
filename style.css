@@ -233,12 +233,13 @@ nav a:hover {
     transform: scale(1.1) rotate(5deg);
 }
 
-/* TARD Character */
+/* TARD Character - Exact Recreation */
 .tard-character {
     display: flex;
     flex-direction: column;
     align-items: center;
     animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
 }
 
 @keyframes float {
@@ -247,75 +248,80 @@ nav a:hover {
 }
 
 .tard-head {
-    width: 250px;
-    height: 250px;
-    background: linear-gradient(135deg, #6a4c93 0%, #4a90e2 50%, #50c9c3 100%);
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, #6B73FF 0%, #4A90E2 100%);
     border-radius: 50%;
     position: relative;
-    margin-bottom: -20px;
+    margin-bottom: -40px;
     animation: wiggle 2s ease-in-out infinite;
-    border: 5px solid #2c1810;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 8px solid #2D1B69;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
 @keyframes wiggle {
     0%, 7% { transform: rotateZ(0); }
-    15% { transform: rotateZ(-15deg); }
-    20% { transform: rotateZ(10deg); }
-    25% { transform: rotateZ(-10deg); }
-    30% { transform: rotateZ(6deg); }
-    35% { transform: rotateZ(-4deg); }
+    15% { transform: rotateZ(-8deg); }
+    20% { transform: rotateZ(6deg); }
+    25% { transform: rotateZ(-4deg); }
+    30% { transform: rotateZ(2deg); }
+    35% { transform: rotateZ(-1deg); }
     40%, 100% { transform: rotateZ(0); }
 }
 
 .tard-eyes {
     display: flex;
     justify-content: space-between;
-    margin-top: 60px;
-    width: 160px;
+    margin-top: 90px;
+    width: 220px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
 
 .eye {
-    width: 50px;
-    height: 50px;
-    background: #f5f5dc;
+    background: #FFFFFF;
     border-radius: 50%;
     position: relative;
-    border: 3px solid #2c1810;
+    border: 5px solid #2D1B69;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .left-eye {
-    transform: scale(1.2);
+    width: 80px;
+    height: 80px;
 }
 
 .right-eye {
-    transform: scale(0.8);
-    margin-top: 10px;
+    width: 55px;
+    height: 55px;
+    margin-top: 20px;
 }
 
 .eye:after {
     content: '';
-    width: 15px;
-    height: 15px;
     background: #000;
     border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: blink 3s infinite;
+    animation: eyeBlink 4s ease-in-out infinite;
 }
 
 .left-eye:after {
+    width: 28px;
+    height: 28px;
+}
+
+.right-eye:after {
     width: 20px;
     height: 20px;
 }
 
-@keyframes blink {
+@keyframes eyeBlink {
     0%, 90%, 100% { transform: translate(-50%, -50%) scale(1); }
-    95% { transform: translate(-50%, -50%) scale(1, 0.1); }
+    95% { transform: translate(-50%, -50%) scaleY(0.1); }
 }
 
 .tard-mouth {
@@ -324,57 +330,59 @@ nav a:hover {
     background: #000;
     border-radius: 0 0 60px 60px;
     position: absolute;
-    bottom: 50px;
+    bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
-    border: 3px solid #2c1810;
-    overflow: hidden;
+    border: 5px solid #2D1B69;
+    border-top: none;
+    overflow: visible;
 }
 
 .tard-mouth:after {
     content: '';
-    width: 30px;
-    height: 20px;
-    background: #ff69b4;
+    width: 40px;
+    height: 25px;
+    background: #FF1493;
     border-radius: 50%;
     position: absolute;
-    bottom: 5px;
+    bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
     animation: tongueWag 2s ease-in-out infinite;
+    border: 3px solid #2D1B69;
 }
 
 @keyframes tongueWag {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-40%) translateY(-3px); }
+    0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+    50% { transform: translateX(-35%) translateY(-3px) rotate(8deg); }
 }
 
 .tard-body {
-    width: 180px;
-    height: 220px;
-    background: linear-gradient(135deg, #6a4c93 0%, #4a90e2 50%, #50c9c3 100%);
-    border-radius: 90px;
-    border: 5px solid #2c1810;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    width: 280px;
+    height: 350px;
+    background: linear-gradient(135deg, #6B73FF 0%, #4A90E2 100%);
+    border-radius: 50%;
+    border: 8px solid #2D1B69;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     position: relative;
 }
 
 .tard-body:before {
     content: '';
     position: absolute;
-    top: 20px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
-    background: rgba(255,255,255,0.2);
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.25);
     border-radius: 50%;
-    animation: shine 3s ease-in-out infinite;
+    animation: bodyShine 3s ease-in-out infinite;
 }
 
-@keyframes shine {
-    0%, 100% { opacity: 0.2; transform: translateX(-50%) scale(1); }
-    50% { opacity: 0.4; transform: translateX(-50%) scale(1.2); }
+@keyframes bodyShine {
+    0%, 100% { opacity: 0.25; transform: translateX(-50%) scale(1); }
+    50% { opacity: 0.5; transform: translateX(-50%) scale(1.3); }
 }
 
 /* Sections */
